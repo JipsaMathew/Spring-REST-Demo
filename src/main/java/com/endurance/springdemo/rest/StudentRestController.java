@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -55,10 +55,10 @@ public class StudentRestController {
 	
 	//to post new student details
 	
-	@PostMapping(value= "/students", headers = "Accept=application/json")
+	@PostMapping("/students")
 	
-	public Student addStudent(Student newStudent) {
-		
+	public Student addStudent(@RequestBody Student newStudent) { /* @RequestBody indicates that a method parameter should be 
+																	bound to the body of the HTTP request. */
 		theStudents.add(newStudent);
 		return newStudent;
 		
