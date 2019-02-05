@@ -1,17 +1,17 @@
 package com.endurance.springdemo.rest;
-
-/*
- * REST Controller
- */
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.endurance.springdemo.entity.Student;
@@ -40,7 +40,7 @@ public class StudentRestController {
 		return theStudents;
 	}
 	
-	
+	//to get student details by stuId
 	@GetMapping("/student/{stuId}")
 	
 	//PathVariable is the value to be appended as part of url
@@ -51,6 +51,17 @@ public class StudentRestController {
 		}
 	
 		return theStudents.get(stuId); 
+	}
+	
+	//to post new student details
+	
+	@PostMapping(value= "/students", headers = "Accept=application/json")
+	
+	public Student addStudent(Student newStudent) {
+		
+		theStudents.add(newStudent);
+		return newStudent;
+		
 	}
 
 

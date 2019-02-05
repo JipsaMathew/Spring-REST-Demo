@@ -6,7 +6,7 @@ package com.endurance.springdemo.entity;
 
 public class Student {
 	String firstName, lastName, major;
-	int stuId, credits;
+	int  credits; 
 
 	public Student() {
 		
@@ -49,6 +49,8 @@ public class Student {
 
 	public void setCredits(int credits) {
 		this.credits = credits;
-	}	
+	}
+	
+	
 	
 }
